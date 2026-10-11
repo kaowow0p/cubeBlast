@@ -4,7 +4,7 @@ public class Cube : MonoBehaviour
 {
     private Renderer _renderer;
 
-    public int DivisionChance { get; set; } = 100;
+    public int DivisionChance = 100;
 
     private void Awake()
     {
