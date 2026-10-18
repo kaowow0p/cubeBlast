@@ -151,7 +151,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -408,6 +408,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 153866314}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &865364392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 865364397}
+  - component: {fileID: 865364396}
+  - component: {fileID: 865364395}
+  - component: {fileID: 865364394}
+  - component: {fileID: 865364393}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &865364393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865364392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3631168ee56ae3b4199075d7c2f5e597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spawner
+  _cubePrefab: {fileID: -8871727115492253499, guid: e710fc2b95c47854b81996879900f34a, type: 3}
+  _explosionForce: 5
+  _explosionRadius: 5
+--- !u!114 &865364394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865364392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455fb6c58de4f9b43858e4ab0fbaecec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputReader
+--- !u!114 &865364395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865364392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b375189993e2465458390ba66f043706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Explaoder
+--- !u!114 &865364396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865364392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1247bb40d2c3314995890c4233b5d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CubeLogic
+  _camera: {fileID: 1156321348}
+--- !u!4 &865364397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865364392}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.8046, y: -7.6813, z: 7.0775}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041826623
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +620,6 @@ GameObject:
   - component: {fileID: 1156321348}
   - component: {fileID: 1156321347}
   - component: {fileID: 1156321346}
-  - component: {fileID: 1156321350}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -653,27 +739,12 @@ Transform:
   m_GameObject: {fileID: 1156321345}
   serializedVersion: 2
   m_LocalRotation: {x: -0.26944822, y: 0.65682775, z: -0.27253678, w: -0.6493833}
-  m_LocalPosition: {x: 6, y: 5, z: 0}
+  m_LocalPosition: {x: 7.68, y: 6.68, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1156321350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1156321345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1247bb40d2c3314995890c4233b5d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CubeLogic
-  _cubePrefab: {fileID: -8871727115492253499, guid: e710fc2b95c47854b81996879900f34a, type: 3}
-  _explosionForce: 5
-  _explosionRadius: 5
 --- !u!1 &1257545256
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,3 +864,4 @@ SceneRoots:
   - {fileID: 1156321349}
   - {fileID: 1978683270}
   - {fileID: 153866314}
+  - {fileID: 865364397}

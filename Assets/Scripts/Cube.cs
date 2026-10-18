@@ -1,18 +1,25 @@
 using UnityEngine;
 
+[RequireComponent (typeof(Rigidbody))]
 public class Cube : MonoBehaviour
 {
     private Renderer _renderer;
+    private Rigidbody _rigidbody;
 
-    public int DivisionChance = 100;
+    public Rigidbody Rigidbody => _rigidbody;
+    public int DivisionChance { get;  private set; }  = 100;
+
 
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     public void SetRandomColor()
     {
         _renderer.material.color = Random.ColorHSV();
     }
+
+    public void Init(int Chance) => DivisionChance = Chance; 
 }

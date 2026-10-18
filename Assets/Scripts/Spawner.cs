@@ -1,18 +1,30 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Cube _cubePrefab;
-    [SerializeField] private float _explosionForce;
-    [SerializeField] private float _explosionRadius;
+    private const int ReductionFactor = 2;
 
-    public void Divide(Cube oldCube)
+    public List<Cube> Spawn(Cube parent, int count)
     {
-        Cube newCube = Instantiate(_cubePrefab, oldCube.transform.position, Random.rotation);
-        newCube.transform.localScale = oldCube.transform.localScale * 0.5f;
-        newCube.DivisionChance = oldCube.DivisionChance / 2;
-        newCube.SetRandomColor();
+        List<Cube> cubes = new List<Cube>();
 
-        Explaoder.Explosion(newCube, _explosionForce, oldCube.transform.position, _explosionRadius);
+        for (int i = 0; i < count; i++)
+        {
+            Cube newCube = Instantiate(_cubePrefab, parent.transform.position, Random.rotation);
+            newCube.transform.localScale = parent.transform.localScale / ReductionFactor;
+            newCube.Init(parent.DivisionChance / ReductionFactor);
+            newCube.SetRandomColor();
+
+            cubes.Add(newCube);
+        }
+
+        return cubes;
+    }
+
+    public void Remove(Cube cube)
+    {
+        Destroy(cube.gameObject);
     }
 }
