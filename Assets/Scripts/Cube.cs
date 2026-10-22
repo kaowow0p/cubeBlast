@@ -9,7 +9,6 @@ public class Cube : MonoBehaviour
     public Rigidbody Rigidbody => _rigidbody;
     public int DivisionChance { get;  private set; }  = 100;
 
-
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
