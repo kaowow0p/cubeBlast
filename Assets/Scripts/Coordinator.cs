@@ -4,13 +4,13 @@ using UnityEngine;
 public class Coordinator : MonoBehaviour
 {
     private const int MaxDivisionChance = 100;
+    private const int _minCube = 2;
+    private const int _maxCube = 6;
 
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Exploder _explorer;
     [SerializeField] private Reycaster _reycaster;
 
-    private const int _minCube = 2;
-    private const int _maxCube = 6;
 
     private void OnEnable() =>
         _reycaster.CubeHit += OnCubeHit;
