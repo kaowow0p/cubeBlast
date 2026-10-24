@@ -4,21 +4,20 @@ using UnityEngine;
 public class Cube : MonoBehaviour
 {
     private Renderer _renderer;
-    private Rigidbody _rigidbody;
+    public Rigidbody Rigidbody;
 
-    public Rigidbody Rigidbody => _rigidbody;
     public int DivisionChance { get;  private set; }  = 100;
 
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
-        _rigidbody = GetComponent<Rigidbody>();
+        Rigidbody = GetComponent<Rigidbody>();
     }
 
-    public void SetRandomColor()
+    public void Init(int сhance , Color color)
     {
-        _renderer.material.color = Random.ColorHSV();
+        DivisionChance = сhance; 
+        _renderer.material.color = color;
     }
 
-    public void Init(int Chance) => DivisionChance = Chance; 
 }

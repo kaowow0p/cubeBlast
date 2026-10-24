@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Coordinator : MonoBehaviour
 {
+    private const int MaxDivisionChance = 100;
+
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Exploder _explorer;
     [SerializeField] private Reycaster _reycaster;
@@ -10,19 +12,15 @@ public class Coordinator : MonoBehaviour
     private const int _minCube = 2;
     private const int _maxCube = 6;
 
-    private void OnEnable()
-    {
+    private void OnEnable() =>
         _reycaster.CubeHit += OnCubeHit;
-    }
 
-    private void OnDisable()
-    {
+    private void OnDisable() =>  
         _reycaster.CubeHit -= OnCubeHit;
-    }
 
     private void OnCubeHit(Cube cube)
     {
-        if (Random.Range(0, 100) < cube.DivisionChance)
+        if (Random.Range(0, MaxDivisionChance) < cube.DivisionChance)
         {
             int count = Random.Range(_minCube, _maxCube + 1);
 

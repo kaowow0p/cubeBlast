@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    private const int SizeReductionFactor = 2;
+    private const int DivisionReductionFactor = 2;
+
     [SerializeField] private Cube _cubePrefab;
-    private const int ReductionFactor = 2;
 
     public List<Cube> Spawn(Cube parent, int count)
     {
@@ -13,14 +15,13 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Cube newCube = Instantiate(_cubePrefab, parent.transform.position, Random.rotation);
-            newCube.transform.localScale = parent.transform.localScale / ReductionFactor;
-            newCube.Init(parent.DivisionChance / ReductionFactor);
-            newCube.SetRandomColor();
+            newCube.transform.localScale = parent.transform.localScale / SizeReductionFactor;
+            newCube.Init(parent.DivisionChance / DivisionReductionFactor , ColorGenerator.GetRandomColor());
 
             cubes.Add(newCube);
         }
 
-        return cubes;
+        return cubes;   
     }
 
     public void Remove(Cube cube)
