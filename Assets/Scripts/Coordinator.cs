@@ -4,12 +4,12 @@ using UnityEngine;
 public class Coordinator : MonoBehaviour
 {
     private const int MaxDivisionChance = 100;
-    private const int _minCube = 2;
-    private const int _maxCube = 6;
+    private const int MinCube = 2;
+    private const int MaxCube = 6;
 
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Exploder _explorer;
-    [SerializeField] private Reycaster _reycaster;
+    [SerializeField] private Raycaster _reycaster;
 
 
     private void OnEnable() =>
@@ -22,7 +22,7 @@ public class Coordinator : MonoBehaviour
     {
         if (Random.Range(0, MaxDivisionChance) < cube.DivisionChance)
         {
-            int count = Random.Range(_minCube, _maxCube + 1);
+            int count = Random.Range(MinCube, MaxCube + 1);
 
             List<Cube> newCubes = _spawner.Spawn(cube, count);
             _explorer.Explosion(newCubes, cube.transform.position);

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Reycaster : MonoBehaviour
+public class Raycaster : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private InputReader _inputReader;

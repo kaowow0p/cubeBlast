@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    [SerializeField] private Cube _cubePrefab;
+
     private const int SizeReductionFactor = 2;
     private const int DivisionReductionFactor = 2;
 
-    [SerializeField] private Cube _cubePrefab;
 
     public List<Cube> Spawn(Cube parent, int count)
     {

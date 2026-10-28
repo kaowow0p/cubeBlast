@@ -1,19 +1,17 @@
-using Unity.Collections.Tests.CoreCLR.TestJobs;
 using UnityEngine;
 
 [RequireComponent (typeof(Rigidbody))]
 public class Cube : MonoBehaviour
 {
-    private Renderer _renderer;
-    private Rigidbody _rigidbody;
-
-    public Rigidbody Rigidbody => _rigidbody;
+    public Rigidbody Rigidbody { get; private set; }
     public int DivisionChance { get;  private set; }  = 100;
+
+    private Renderer _renderer;
 
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
-        _rigidbody = GetComponent<Rigidbody>();
+        Rigidbody = GetComponent<Rigidbody>();
     }
 
     public void Init(int сhance , Color color)
